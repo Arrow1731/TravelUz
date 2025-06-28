@@ -1,0 +1,468 @@
+// Data for TravelUz application
+const historicalPlaces = [
+  {
+    id: 1,
+    name: {
+      uz: "Registon maydoni",
+      ru: "Площадь Регистан",
+      en: "Registan Square",
+    },
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    description: {
+      uz: "O'rta Asiyoning eng go'zal me'moriy yodgorligi",
+      ru: "Самый красивый архитектурный памятник Центральной Азии",
+      en: "The most beautiful architectural monument of Central Asia",
+    },
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500&h=300&fit=crop",
+    rating: 4.9,
+    duration: "2-3 soat",
+    price: "$25",
+  },
+  {
+    id: 2,
+    name: {
+      uz: "Ichan Qal'a",
+      ru: "Ичан-Кала",
+      en: "Itchan Kala",
+    },
+    location: {
+      uz: "Xiva",
+      ru: "Хива",
+      en: "Khiva",
+    },
+    description: {
+      uz: "UNESCO tomonidan himoyalangan tarixiy shahar",
+      ru: "Исторический город под защитой ЮНЕСКО",
+      en: "UNESCO protected historical city",
+    },
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+    rating: 4.8,
+    duration: "4-5 soat",
+    price: "$30",
+  },
+  {
+    id: 3,
+    name: {
+      uz: "Bibi-Xonum masjidi",
+      ru: "Мечеть Биби-Ханум",
+      en: "Bibi-Khanym Mosque",
+    },
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    description: {
+      uz: "Amir Temurning ulug' masjidi",
+      ru: "Великая мечеть Амира Темура",
+      en: "The great mosque of Amir Temur",
+    },
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+    rating: 4.7,
+    duration: "1-2 soat",
+    price: "$20",
+  },
+  {
+    id: 4,
+    name: {
+      uz: "Shohizinda maqbarasi",
+      ru: "Мавзолей Шахи-Зинда",
+      en: "Shah-i-Zinda Mausoleum",
+    },
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    description: {
+      uz: "Noyob gumbazli maqbaralar majmuasi",
+      ru: "Уникальный комплекс купольных мавзолеев",
+      en: "Unique complex of domed mausoleums",
+    },
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+    rating: 4.8,
+    duration: "2-3 soat",
+    price: "$22",
+  },
+  {
+    id: 5,
+    name: {
+      uz: "Gur-Emir maqbarasi",
+      ru: "Мавзолей Гур-Эмир",
+      en: "Gur-e-Amir Mausoleum",
+    },
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    description: {
+      uz: "Amir Temur va uning avlodlarining maqbarasi",
+      ru: "Мавзолей Амира Темура и его потомков",
+      en: "Mausoleum of Amir Temur and his descendants",
+    },
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500&h=300&fit=crop",
+    rating: 4.6,
+    duration: "1-2 soat",
+    price: "$18",
+  },
+  {
+    id: 6,
+    name: {
+      uz: "Lyabi-Hauz majmuasi",
+      ru: "Комплекс Ляби-Хауз",
+      en: "Lyabi-Hauz Complex",
+    },
+    location: {
+      uz: "Buxoro",
+      ru: "Бухара",
+      en: "Bukhara",
+    },
+    description: {
+      uz: "Qadimiy hovuz atrofidagi me'moriy majmua",
+      ru: "Архитектурный комплекс вокруг древнего пруда",
+      en: "Architectural complex around an ancient pond",
+    },
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+    rating: 4.5,
+    duration: "2-3 soat",
+    price: "$15",
+  },
+]
+
+const hotels = [
+  {
+    id: 1,
+    name: {
+      uz: "Registon Plaza Hotel",
+      ru: "Отель Регистан Плаза",
+      en: "Registan Plaza Hotel",
+    },
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    description: {
+      uz: "Registon maydoniga yaqin joylashgan hashamatli mehmonxona",
+      ru: "Роскошный отель рядом с площадью Регистан",
+      en: "Luxury hotel near Registan Square",
+    },
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=300&fit=crop",
+    rating: 4.8,
+    price: 120,
+    amenities: ["wifi", "parking", "restaurant", "gym", "pool"],
+  },
+  {
+    id: 2,
+    name: {
+      uz: "Xiva Palace Hotel",
+      ru: "Отель Хива Палас",
+      en: "Khiva Palace Hotel",
+    },
+    location: {
+      uz: "Xiva",
+      ru: "Хива",
+      en: "Khiva",
+    },
+    description: {
+      uz: "Ichan Qal'a ichida joylashgan tarixiy mehmonxona",
+      ru: "Исторический отель в Ичан-Кале",
+      en: "Historic hotel inside Itchan Kala",
+    },
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&h=300&fit=crop",
+    rating: 4.6,
+    price: 95,
+    amenities: ["wifi", "restaurant", "breakfast"],
+  },
+  {
+    id: 3,
+    name: {
+      uz: "Buxoro Grand Hotel",
+      ru: "Гранд Отель Бухара",
+      en: "Bukhara Grand Hotel",
+    },
+    location: {
+      uz: "Buxoro",
+      ru: "Бухара",
+      en: "Bukhara",
+    },
+    description: {
+      uz: "Zamonaviy qulayliklar bilan jihozlangan mehmonxona",
+      ru: "Отель с современными удобствами",
+      en: "Hotel with modern amenities",
+    },
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&h=300&fit=crop",
+    rating: 4.7,
+    price: 110,
+    amenities: ["wifi", "parking", "restaurant", "gym"],
+  },
+  {
+    id: 4,
+    name: {
+      uz: "Toshkent City Hotel",
+      ru: "Отель Ташкент Сити",
+      en: "Tashkent City Hotel",
+    },
+    location: {
+      uz: "Toshkent",
+      ru: "Ташкент",
+      en: "Tashkent",
+    },
+    description: {
+      uz: "Shahar markazida joylashgan zamonaviy mehmonxona",
+      ru: "Современный отель в центре города",
+      en: "Modern hotel in the city center",
+    },
+    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=500&h=300&fit=crop",
+    rating: 4.5,
+    price: 85,
+    amenities: ["wifi", "parking", "restaurant", "breakfast"],
+  },
+  {
+    id: 5,
+    name: {
+      uz: "Fergana Valley Resort",
+      ru: "Курорт Ферганская Долина",
+      en: "Fergana Valley Resort",
+    },
+    location: {
+      uz: "Farg'ona",
+      ru: "Фергана",
+      en: "Fergana",
+    },
+    description: {
+      uz: "Tabiat qo'ynida joylashgan dam olish maskani",
+      ru: "Курорт на лоне природы",
+      en: "Nature resort getaway",
+    },
+    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=300&fit=crop",
+    rating: 4.4,
+    price: 75,
+    amenities: ["wifi", "restaurant", "pool", "gym"],
+  },
+  {
+    id: 6,
+    name: {
+      uz: "Nukus Business Hotel",
+      ru: "Бизнес Отель Нукус",
+      en: "Nukus Business Hotel",
+    },
+    location: {
+      uz: "Nukus",
+      ru: "Нукус",
+      en: "Nukus",
+    },
+    description: {
+      uz: "Biznes sayohatchilari uchun qulay mehmonxona",
+      ru: "Удобный отель для бизнес-путешественников",
+      en: "Convenient hotel for business travelers",
+    },
+    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&h=300&fit=crop",
+    rating: 4.3,
+    price: 65,
+    amenities: ["wifi", "parking", "breakfast"],
+  },
+]
+
+const guides = [
+  {
+    id: 1,
+    name: "Aziz Karimov",
+    location: {
+      uz: "Samarqand",
+      ru: "Самарканд",
+      en: "Samarkand",
+    },
+    speciality: {
+      uz: "Tarix mutaxassisi",
+      ru: "Специалист по истории",
+      en: "History Specialist",
+    },
+    description: {
+      uz: "15 yillik tajribaga ega professional gid. Samarqandning barcha tarixiy joylarini mukammal biladi.",
+      ru: "Профессиональный гид с 15-летним опытом. Отлично знает все исторические места Самарканда.",
+      en: "Professional guide with 15 years of experience. Excellent knowledge of all historical places in Samarkand.",
+    },
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    rating: 4.9,
+    reviews: 156,
+    experience: 15,
+    languages: ["UZ", "RU", "EN", "TR"],
+    hourlyRate: 25,
+    verified: true,
+    category: "topRated",
+  },
+  {
+    id: 2,
+    name: "Malika Tosheva",
+    location: {
+      uz: "Buxoro",
+      ru: "Бухара",
+      en: "Bukhara",
+    },
+    speciality: {
+      uz: "Me'morchilik gidi",
+      ru: "Архитектурный гид",
+      en: "Architecture Guide",
+    },
+    description: {
+      uz: "Buxoroning noyob me'moriy yodgorliklarini chuqur o'rganuvchi mutaxassis.",
+      ru: "Специалист, глубоко изучающий уникальные архитектурные памятники Бухары.",
+      en: "Specialist deeply studying the unique architectural monuments of Bukhara.",
+    },
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    rating: 4.8,
+    reviews: 89,
+    experience: 8,
+    languages: ["UZ", "RU", "EN"],
+    hourlyRate: 20,
+    verified: true,
+    category: "topRated",
+  },
+  {
+    id: 3,
+    name: "Bobur Rahimov",
+    location: {
+      uz: "Xiva",
+      ru: "Хива",
+      en: "Khiva",
+    },
+    speciality: {
+      uz: "Madaniyat gidi",
+      ru: "Культурный гид",
+      en: "Cultural Guide",
+    },
+    description: {
+      uz: "Xivaning boy madaniy merosini sevib o'rganuvchi yosh mutaxassis.",
+      ru: "Молодой специалист, изучающий богатое культурное наследие Хивы.",
+      en: "Young specialist studying the rich cultural heritage of Khiva.",
+    },
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    rating: 4.6,
+    reviews: 45,
+    experience: 5,
+    languages: ["UZ", "RU"],
+    hourlyRate: 18,
+    verified: true,
+    category: "newGuides",
+  },
+  {
+    id: 4,
+    name: "Nigora Abdullayeva",
+    location: {
+      uz: "Toshkent",
+      ru: "Ташкент",
+      en: "Tashkent",
+    },
+    speciality: {
+      uz: "Shahar gidi",
+      ru: "Городской гид",
+      en: "City Guide",
+    },
+    description: {
+      uz: "Toshkentning zamonaviy va tarixiy joylarini birlashtiruvchi professional gid.",
+      ru: "Профессиональный гид, объединяющий современные и исторические места Ташкента.",
+      en: "Professional guide combining modern and historical places of Tashkent.",
+    },
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    rating: 4.7,
+    reviews: 78,
+    experience: 10,
+    languages: ["UZ", "RU", "EN"],
+    hourlyRate: 22,
+    verified: true,
+    category: "topRated",
+  },
+  {
+    id: 5,
+    name: "Jasur Mirzayev",
+    location: {
+      uz: "Farg'ona",
+      ru: "Фергана",
+      en: "Fergana",
+    },
+    speciality: {
+      uz: "Tabiat gidi",
+      ru: "Природный гид",
+      en: "Nature Guide",
+    },
+    description: {
+      uz: "Farg'ona vodiysining tabiy go'zalliklarini ko'rsatuvchi mutaxassis.",
+      ru: "Специалист, показывающий природные красоты Ферганской долины.",
+      en: "Specialist showing the natural beauty of Fergana Valley.",
+    },
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    rating: 4.5,
+    reviews: 32,
+    experience: 3,
+    languages: ["UZ", "RU"],
+    hourlyRate: 15,
+    verified: false,
+    category: "newGuides",
+  },
+  {
+    id: 6,
+    name: "Dilnoza Saidova",
+    location: {
+      uz: "Nukus",
+      ru: "Нукус",
+      en: "Nukus",
+    },
+    speciality: {
+      uz: "San'at gidi",
+      ru: "Искусствовед",
+      en: "Art Guide",
+    },
+    description: {
+      uz: "Savitskiy muzeyi va zamonaviy san'at bo'yicha mutaxassis.",
+      ru: "Специалист по музею Савицкого и современному искусству.",
+      en: "Specialist in Savitsky Museum and contemporary art.",
+    },
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    rating: 4.4,
+    reviews: 28,
+    experience: 4,
+    languages: ["UZ", "RU", "EN"],
+    hourlyRate: 16,
+    verified: true,
+    category: "newGuides",
+  },
+]
+
+const amenityIcons = {
+  wifi: "wifi",
+  parking: "car",
+  breakfast: "coffee",
+  restaurant: "utensils",
+  gym: "dumbbell",
+  pool: "waves",
+}
+
+// Order items for payment page
+const orderItems = [
+  {
+    id: 1,
+    name: {
+      uz: "Registon Plaza Hotel - 2 kecha",
+      ru: "Отель Регистан Плаза - 2 ночи",
+      en: "Registan Plaza Hotel - 2 nights",
+    },
+    price: 240,
+    type: "hotel",
+  },
+  {
+    id: 2,
+    name: {
+      uz: "Aziz Karimov - Tarix gidi (4 soat)",
+      ru: "Азиз Каримов - Исторический гид (4 часа)",
+      en: "Aziz Karimov - History Guide (4 hours)",
+    },
+    price: 100,
+    type: "guide",
+  },
+]
