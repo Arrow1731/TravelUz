@@ -9,6 +9,7 @@ import { Search, MapPin, Star, User, Globe, Menu, Heart, Clock, Users, Hotel, Us
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import Link from "next/link"
+import { Teachers } from "next/font/google"
 
 type Language = "uz" | "ru" | "en"
 
@@ -20,6 +21,7 @@ const translations = {
     historicalPlaces: "Tarixiy joylar",
     hotels: "Mehmonxonalar",
     guides: "Gidlar",
+    Teachers: "O'qituvchilar",
     myProfile: "Mening profilim",
     guideProfile: "Gid profili",
     register: "Ro'yxatdan o'tish",
@@ -42,6 +44,7 @@ const translations = {
     historicalPlaces: "Исторические места",
     hotels: "Отели",
     guides: "Гиды",
+    Teachers: "Учителей",
     myProfile: "Мой профиль",
     guideProfile: "Профиль гида",
     register: "Регистрация",
@@ -64,6 +67,7 @@ const translations = {
     historicalPlaces: "Historical Places",
     hotels: "Hotels",
     guides: "Guides",
+    Teachers: "Teachers",
     myProfile: "My Profile",
     guideProfile: "Guide Profile",
     register: "Register",
@@ -260,6 +264,13 @@ export default function HomePage() {
                 <span>{t.guides}</span>
               </Link>
               <Link
+                href="/teachers"
+                className="text-gray-600 hover:text-orange-600 transition-colors flex items-center space-x-1"
+              >
+                <Users className="w-4 h-4" />
+                <span>{t.Teachers}</span>
+              </Link>
+              <Link
                 href="/register"
                 className="text-gray-600 hover:text-orange-600 transition-colors flex items-center space-x-1"
               >
@@ -325,6 +336,12 @@ export default function HomePage() {
                     >
                       <Users className="w-4 h-4" />
                       <span>{t.guides}</span>
+                    </Link>
+                    <Link
+                      href="/teacher"
+                      className="flex items-center space-x-2 p-2 rounded-lg hover:bg-orange-100 transition-colors"
+                    >
+                      <span>{t.Teachers}</span>
                     </Link>
                     <Link
                       href="/register"
@@ -473,7 +490,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-orange-500 mt-8 pt-8 text-center text-orange-100">
-            <p>&copy; 2024 TravelUz. All rights reserved.</p>
+            <p>&copy; 2025 TravelUz. All rights reserved.</p>
           </div>
         </div>
       </footer>

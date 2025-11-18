@@ -6,10 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TravelUz - Discover Uzbekistan",
-  description:
-    "Explore the beautiful historical places of Uzbekistan with professional guides and book the best hotels",
-    generator: 'v0.dev'
+  title: "TravelUz - Captain's Project",
 }
 
 export default function RootLayout({

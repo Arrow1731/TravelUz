@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,29 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+
     <!-- Header -->
     <header class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-orange-100 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-4">
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent cursor-pointer" onclick="window.location.href='index.html'">
-                        <span id="header-title">TravelUz</span>
-                    </h1>
-                </div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent cursor-pointer"
+                    onclick="window.location.href='index.html'">
+                    TravelUz
+                </h1>
 
                 <nav class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-600 hover:text-orange-600 transition-colors" id="nav-home">Home</a>
-                    <a href="hotels.html" class="text-gray-600 hover:text-orange-600 transition-colors" id="nav-hotels">Hotels</a>
-                    <a href="guides.html" class="text-gray-600 hover:text-orange-600 transition-colors" id="nav-guides">Guides</a>
-                    <a href="register.html" class="text-orange-600 font-medium hover:text-orange-700 transition-colors" id="nav-register">Register</a>
+                    <a href="index.html" class="text-gray-600 hover:text-orange-600 transition-colors">Home</a>
+                    <a href="hotels.html" class="text-gray-600 hover:text-orange-600 transition-colors">Hotels</a>
+                    <a href="guides.html" class="text-gray-600 hover:text-orange-600 transition-colors">Guides</a>
+                    <a href="register.html"
+                        class="text-orange-600 font-medium hover:text-orange-700 transition-colors">Register</a>
                 </nav>
 
                 <div class="flex items-center space-x-4">
-                    <select id="language-selector" class="border border-orange-200 rounded-md px-3 py-1 focus:border-orange-400 focus:outline-none">
+                    <select id="language-selector"
+                        class="border border-orange-200 rounded-md px-3 py-1 focus:border-orange-400 focus:outline-none">
                         <option value="uz">UZ</option>
                         <option value="ru">RU</option>
                         <option value="en">EN</option>
@@ -41,223 +45,154 @@
     <div class="py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto">
             <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl border border-orange-100 p-8">
+
                 <div class="text-center mb-8">
-                    <h2 id="register-title" class="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                    <h2
+                        class="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                         Register
                     </h2>
-                    <p id="register-subtitle" class="text-gray-600 mt-2">Regular User</p>
+                    <p class="text-gray-600 mt-2">Regular User</p>
                 </div>
 
                 <form id="registration-form" class="space-y-6">
-                    <!-- User Type Selection -->
+                    <!-- USER TYPE -->
                     <div class="space-y-3">
-                        <label class="text-base font-medium text-gray-700" id="user-type-label">User Type</label>
+                        <label class="text-base font-medium text-gray-700">User Type</label>
+
                         <div class="space-y-2">
-                            <div class="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
-                                <input type="radio" id="user-type-user" name="userType" value="user" checked class="text-orange-600">
-                                <label for="user-type-user" class="flex items-center cursor-pointer">
+                            <div
+                                class="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
+                                <input type="radio" name="userType" value="user" checked>
+                                <label class="flex items-center cursor-pointer">
                                     <i data-lucide="user" class="w-4 h-4 mr-2 text-orange-600"></i>
-                                    <span id="regular-user-label">Regular User</span>
+                                    Regular User
                                 </label>
                             </div>
-                            <div class="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
-                                <input type="radio" id="user-type-guide" name="userType" value="guide" class="text-orange-600">
-                                <label for="user-type-guide" class="flex items-center cursor-pointer">
+
+                            <div
+                                class="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
+                                <input type="radio" name="userType" value="guide">
+                                <label class="flex items-center cursor-pointer">
                                     <i data-lucide="user-check" class="w-4 h-4 mr-2 text-orange-600"></i>
-                                    <span id="professional-guide-label">Professional Guide</span>
+                                    Professional Guide
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Personal Information -->
+                    <!-- PERSONAL INFO -->
                     <div class="space-y-4">
-                        <h3 id="personal-info-title" class="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">
-                            Personal Information
-                        </h3>
+                        <h3 class="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">Personal
+                            Information</h3>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <label for="firstName" id="first-name-label">First Name</label>
-                                <input
-                                    type="text"
-                                    id="firstName"
-                                    name="firstName"
-                                    required
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>First Name</label>
+                                <input type="text" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                             <div class="space-y-2">
-                                <label for="lastName" id="last-name-label">Last Name</label>
-                                <input
-                                    type="text"
-                                    id="lastName"
-                                    name="lastName"
-                                    required
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>Last Name</label>
+                                <input type="text" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="email" id="email-label">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                            />
+                            <label>Email</label>
+                            <input type="email" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                         </div>
 
                         <div class="space-y-2">
-                            <label for="phone" id="phone-label">Phone</label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                required
-                                class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                            />
+                            <label>Phone</label>
+                            <input type="tel" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <label for="password" id="password-label">Password</label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    required
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>Password</label>
+                                <input type="password" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                             <div class="space-y-2">
-                                <label for="confirmPassword" id="confirm-password-label">Confirm Password</label>
-                                <input
-                                    type="password"
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    required
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>Confirm Password</label>
+                                <input type="password" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Guide Information (Hidden by default) -->
-                    <div id="guide-info" class="space-y-4 hidden">
-                        <h3 id="guide-info-title" class="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">
-                            Guide Information
-                        </h3>
+                    <!-- GUIDE INFO (HIDDEN BY DEFAULT) -->
+                    <div id="guide-info" class="hidden space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">Guide
+                            Information</h3>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <label for="experience" id="experience-label">Experience (years)</label>
-                                <input
-                                    type="number"
-                                    id="experience"
-                                    name="experience"
-                                    min="0"
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>Experience (years)</label>
+                                <input type="number" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                             <div class="space-y-2">
-                                <label for="hourlyRate" id="hourly-rate-label">Hourly Rate ($)</label>
-                                <input
-                                    type="number"
-                                    id="hourlyRate"
-                                    name="hourlyRate"
-                                    min="0"
-                                    class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                                />
+                                <label>Hourly Rate ($)</label>
+                                <input type="number" class="w-full py-2 px-3 border border-orange-200 rounded-md">
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="specialization" id="specialization-label">Specialization</label>
-                            <select id="specialization" name="specialization" class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none">
+                            <label>Specialization</label>
+                            <select class="w-full py-2 px-3 border border-orange-200 rounded-md">
                                 <option value="">Select specialization</option>
-                                <option value="history">History</option>
-                                <option value="architecture">Architecture</option>
-                                <option value="culture">Culture</option>
-                                <option value="nature">Nature</option>
-                                <option value="art">Art</option>
-                                <option value="city">City Guide</option>
+                                <option>History</option>
+                                <option>Architecture</option>
+                                <option>Culture</option>
+                                <option>Nature</option>
+                                <option>Art</option>
+                                <option>City Guide</option>
                             </select>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="location" id="location-label">Location</label>
-                            <select id="location" name="location" class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none">
+                            <label>Location</label>
+                            <select class="w-full py-2 px-3 border border-orange-200 rounded-md">
                                 <option value="">Select location</option>
-                                <option value="tashkent">Tashkent</option>
-                                <option value="samarkand">Samarkand</option>
-                                <option value="bukhara">Bukhara</option>
-                                <option value="khiva">Khiva</option>
-                                <option value="fergana">Fergana</option>
-                                <option value="nukus">Nukus</option>
+                                <option>Tashkent</option>
+                                <option>Samarkand</option>
+                                <option>Bukhara</option>
+                                <option>Khiva</option>
+                                <option>Fergana</option>
+                                <option>Nukus</option>
                             </select>
                         </div>
 
                         <div class="space-y-2">
-                            <label id="languages-label">Languages</label>
+                            <label>Languages</label>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" name="languages" value="UZ" class="text-orange-600">
-                                    <span>UZ</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" name="languages" value="RU" class="text-orange-600">
-                                    <span>RU</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" name="languages" value="EN" class="text-orange-600">
-                                    <span>EN</span>
-                                </label>
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" name="languages" value="TR" class="text-orange-600">
-                                    <span>TR</span>
-                                </label>
+                                <label><input type="checkbox"> UZ</label>
+                                <label><input type="checkbox"> RU</label>
+                                <label><input type="checkbox"> EN</label>
+                                <label><input type="checkbox"> TR</label>
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="description" id="description-label">About Yourself</label>
-                            <textarea
-                                id="description"
-                                name="description"
-                                rows="4"
-                                placeholder="Tell about yourself and your services..."
-                                class="w-full py-2 px-3 border border-orange-200 rounded-md focus:border-orange-400 focus:outline-none"
-                            ></textarea>
+                            <label>About Yourself</label>
+                            <textarea rows="4" class="w-full py-2 px-3 border border-orange-200 rounded-md"></textarea>
                         </div>
                     </div>
 
-                    <!-- Terms Agreement -->
+                    <!-- AGREEMENT -->
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required class="text-orange-600">
-                        <label for="agreeTerms" class="text-sm text-gray-600" id="agree-terms-label">
-                            I agree to the terms of service
-                        </label>
+                        <input type="checkbox">
+                        <span class="text-sm text-gray-600">I agree to the terms of service</span>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button
-                        type="submit"
-                        class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 px-6 rounded-md shadow-lg text-lg transition-all"
-                        id="create-account-btn"
-                    >
+                    <!-- BUTTON -->
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 rounded-md shadow-lg text-lg">
                         Create Account
                     </button>
 
-                    <!-- Sign In Link -->
-                    <div class="text-center">
-                        <p class="text-gray-600">
-                            <span id="already-have-account">Already have an account?</span>
-                            <a href="#" class="text-orange-600 hover:text-orange-700 font-medium ml-1" id="sign-in-link">Sign In</a>
-                        </p>
-                    </div>
+                    <p class="text-center text-gray-600 mt-4">
+                        Already have an account?
+                        <a href="#" class="text-orange-600 font-medium ml-1">Sign In</a>
+                    </p>
+
                 </form>
             </div>
         </div>
@@ -265,5 +200,7 @@
 
     <script src="js/translations.js"></script>
     <script src="js/register.js"></script>
+
 </body>
+
 </html>

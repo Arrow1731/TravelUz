@@ -1,3 +1,675 @@
+// // "use client"
+
+// // import { useState } from "react"
+// // import { Button } from "@/components/ui/button"
+// // import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// // import { Input } from "@/components/ui/input"
+// // import { Label } from "@/components/ui/label"
+// // import { Textarea } from "@/components/ui/textarea"
+// // import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+// // import { Checkbox } from "@/components/ui/checkbox"
+// // import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+// // import { Globe, User, UserCheck } from "lucide-react"
+// // import Link from "next/link"
+
+// // type Language = "uz" | "ru" | "en"
+
+// // const translations = {
+// //   uz: { title: "TravelUz", register: "Ro'yxatdan o'tish", userType: "Foydalanuvchi turi", regularUser: "Oddiy foydalanuvchi", professionalGuide: "Professional gid", personalInfo: "Shaxsiy ma'lumotlar", firstName: "Ism", lastName: "Familiya", email: "Email", phone: "Telefon", password: "Parol", confirmPassword: "Parolni tasdiqlash", profilePhoto: "Profil rasmi", uploadPhoto: "Rasm yuklash", guideInfo: "Gid ma'lumotlari", experience: "Tajriba (yillarda)", specialization: "Mutaxassislik", languages: "Tillar", hourlyRate: "Soatlik narx ($)", description: "O'zingiz haqingizda", certifications: "Sertifikatlar", location: "Joylashuv", agreeTerms: "Foydalanish shartlariga roziman", createAccount: "Hisob yaratish", alreadyHaveAccount: "Hisobingiz bormi?", signIn: "Kirish", home: "Bosh sahifa", hotels: "Mehmonxonalar", guides: "Gidlar" },
+
+// //   ru: { title: "TravelUz", register: "Регистрация", userType: "Тип пользователя", regularUser: "Обычный пользователь", professionalGuide: "Профессиональный гид", personalInfo: "Личная информация", firstName: "Имя", lastName: "Фамилия", email: "Email", phone: "Телефон", password: "Пароль", confirmPassword: "Подтвердить пароль", profilePhoto: "Фото профиля", uploadPhoto: "Загрузить фото", guideInfo: "Информация о гиде", experience: "Опыт (в годах)", specialization: "Специализация", languages: "Языки", hourlyRate: "Почасовая оплата ($)", description: "О себе", certifications: "Сертификаты", location: "Местоположение", agreeTerms: "Согласен с условиями использования", createAccount: "Создать аккаунт", alreadyHaveAccount: "Уже есть аккаунт?", signIn: "Войти", home: "Главная", hotels: "Отели", guides: "Гиды" },
+
+// //   en: { title: "TravelUz", register: "Register", userType: "User Type", regularUser: "Regular User", professionalGuide: "Professional Guide", personalInfo: "Personal Information", firstName: "First Name", lastName: "Last Name", email: "Email", phone: "Phone", password: "Password", confirmPassword: "Confirm Password", profilePhoto: "Profile Photo", uploadPhoto: "Upload Photo", guideInfo: "Guide Information", experience: "Experience (years)", specialization: "Specialization", languages: "Languages", hourlyRate: "Hourly Rate ($)", description: "About Yourself", certifications: "Certifications", location: "Location", agreeTerms: "I agree to the terms of service", createAccount: "Create Account", alreadyHaveAccount: "Already have an account?", signIn: "Sign In", home: "Home", hotels: "Hotels", guides: "Guides" },
+// // }
+
+// // const specializations = {
+// //   uz: ["Tarix", "Me'morchilik", "Madaniyat", "Tabiat", "San'at", "Shahar gidi"],
+// //   ru: ["История", "Архитектура", "Культура", "Природа", "Искусство", "Городской гид"],
+// //   en: ["History", "Architecture", "Culture", "Nature", "Art", "City Guide"],
+// // }
+
+// // const locations = {
+// //   uz: ["Toshkent", "Samarqand", "Buxoro", "Xiva", "Farg'ona", "Nukus", "Namangan", "Andijon"],
+// //   ru: ["Ташкент", "Самарканд", "Бухара", "Хива", "Фергана", "Нукус", "Наманган", "Андижан"],
+// //   en: ["Tashkent", "Samarkand", "Bukhara", "Khiva", "Fergana", "Nukus", "Namangan", "Andijan"],
+// // }
+
+// // export default function RegisterPage() {
+// //   const [language, setLanguage] = useState<Language>("uz")
+// //   const [userType, setUserType] = useState<"user" | "guide">("user")
+
+// //   const [formData, setFormData] = useState({
+// //     firstName: "",
+// //     lastName: "",
+// //     email: "",
+// //     phone: "",
+// //     password: "",
+// //     confirmPassword: "",
+// //     experience: "",
+// //     specialization: "",
+// //     languages: [] as string[],
+// //     hourlyRate: "",
+// //     description: "",
+// //     location: "",
+// //     agreeTerms: false,
+// //   })
+
+// //   const t = translations[language]
+
+// //   const handleLanguageToggle = (lang: string) => {
+// //     setFormData(prev => ({
+// //       ...prev,
+// //       languages: prev.languages.includes(lang)
+// //         ? prev.languages.filter(l => l !== lang)
+// //         : [...prev.languages, lang],
+// //     }))
+// //   }
+
+// //   return (
+// //     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+
+// //       {/* HEADER */}
+// //       <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-orange-100 sticky top-0 z-50">
+// //         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+
+// //           <Link href="/">
+// //             <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+// //               {t.title}
+// //             </h1>
+// //           </Link>
+
+// //           <nav className="hidden md:flex items-center space-x-6">
+// //             <Link href="/" className="hover:text-orange-600">{t.home}</Link>
+// //             <Link href="/hotels" className="hover:text-orange-600">{t.hotels}</Link>
+// //             <Link href="/guides" className="hover:text-orange-600">{t.guides}</Link>
+// //             <Link href="/register" className="text-orange-600 font-medium">{t.register}</Link>
+// //           </nav>
+
+// //           <Select value={language} onValueChange={(v: Language) => setLanguage(v)}>
+// //             <SelectTrigger className="w-20 border-orange-200">
+// //               <Globe className="w-4 h-4 text-orange-600" />
+// //             </SelectTrigger>
+// //             <SelectContent>
+// //               <SelectItem value="uz">UZ</SelectItem>
+// //               <SelectItem value="ru">RU</SelectItem>
+// //               <SelectItem value="en">EN</SelectItem>
+// //             </SelectContent>
+// //           </Select>
+
+// //         </div>
+// //       </header>
+
+// //       {/* FORM */}
+// //       <div className="py-12 px-4">
+// //         <div className="max-w-2xl mx-auto">
+// //           <Card className="shadow-xl bg-white/90">
+
+// //             <CardHeader className="text-center">
+// //               <CardTitle className="text-3xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+// //                 {t.register}
+// //               </CardTitle>
+// //               <CardDescription>
+// //                 {userType === "user" ? t.regularUser : t.professionalGuide}
+// //               </CardDescription>
+// //             </CardHeader>
+
+// //             <CardContent className="space-y-6">
+
+// //               {/* USER TYPE SELECTOR */}
+// //               <div className="space-y-3">
+// //                 <Label>{t.userType}</Label>
+// //                 <RadioGroup value={userType} onValueChange={(v: "user" | "guide") => setUserType(v)}>
+
+// //                   <div className="flex items-center space-x-2 p-3 border rounded-lg">
+// //                     <RadioGroupItem id="user" value="user" />
+// //                     <Label htmlFor="user" className="flex items-center">
+// //                       <User className="w-4 h-4 mr-2 text-orange-600" />
+// //                       {t.regularUser}
+// //                     </Label>
+// //                   </div>
+
+// //                   <div className="flex items-center space-x-2 p-3 border rounded-lg">
+// //                     <RadioGroupItem id="guide" value="guide" />
+// //                     <Label htmlFor="guide" className="flex items-center">
+// //                       <UserCheck className="w-4 h-4 mr-2 text-orange-600" />
+// //                       {t.professionalGuide}
+// //                     </Label>
+// //                   </div>
+// //                 </RadioGroup>
+// //               </div>
+
+// //               {/* PERSONAL INFO */}
+// //               <div className="space-y-4">
+// //                 <h3 className="text-lg font-semibold border-b pb-2">{t.personalInfo}</h3>
+
+// //                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+// //                   <div>
+// //                     <Label>{t.firstName}</Label>
+// //                     <Input value={formData.firstName} onChange={e => setFormData({ ...formData, firstName: e.target.value })} />
+// //                   </div>
+// //                   <div>
+// //                     <Label>{t.lastName}</Label>
+// //                     <Input value={formData.lastName} onChange={e => setFormData({ ...formData, lastName: e.target.value })} />
+// //                   </div>
+// //                 </div>
+
+// //                 <div>
+// //                   <Label>{t.email}</Label>
+// //                   <Input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
+// //                 </div>
+
+// //                 <div>
+// //                   <Label>{t.phone}</Label>
+// //                   <Input value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
+// //                 </div>
+
+// //                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+// //                   <div>
+// //                     <Label>{t.password}</Label>
+// //                     <Input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} />
+// //                   </div>
+// //                   <div>
+// //                     <Label>{t.confirmPassword}</Label>
+// //                     <Input type="password" value={formData.confirmPassword} onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} />
+// //                   </div>
+// //                 </div>
+// //               </div>
+
+// //               {/* GUIDE INFO */}
+// //               {userType === "guide" && (
+// //                 <div className="space-y-4">
+// //                   <h3 className="text-lg font-semibold border-b pb-2">{t.guideInfo}</h3>
+
+// //                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+// //                     <div>
+// //                       <Label>{t.experience}</Label>
+// //                       <Input type="number" value={formData.experience} onChange={e => setFormData({ ...formData, experience: e.target.value })} />
+// //                     </div>
+// //                     <div>
+// //                       <Label>{t.hourlyRate}</Label>
+// //                       <Input type="number" value={formData.hourlyRate} onChange={e => setFormData({ ...formData, hourlyRate: e.target.value })} />
+// //                     </div>
+// //                   </div>
+
+// //                   <div>
+// //                     <Label>{t.specialization}</Label>
+// //                     <Select onValueChange={v => setFormData({ ...formData, specialization: v })}>
+// //                       <SelectTrigger>
+// //                         <SelectValue placeholder={t.specialization} />
+// //                       </SelectTrigger>
+// //                       <SelectContent>
+// //                         {specializations[language].map((spec) => (
+// //                           <SelectItem key={spec} value={spec}>{spec}</SelectItem>
+// //                         ))}
+// //                       </SelectContent>
+// //                     </Select>
+// //                   </div>
+
+// //                   <div>
+// //                     <Label>{t.location}</Label>
+// //                     <Select onValueChange={v => setFormData({ ...formData, location: v })}>
+// //                       <SelectTrigger>
+// //                         <SelectValue placeholder={t.location} />
+// //                       </SelectTrigger>
+// //                       <SelectContent>
+// //                         {locations[language].map((loc) => (
+// //                           <SelectItem key={loc} value={loc}>{loc}</SelectItem>
+// //                         ))}
+// //                       </SelectContent>
+// //                     </Select>
+// //                   </div>
+
+// //                   <div>
+// //                     <Label>{t.languages}</Label>
+// //                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+// //                       {["UZ", "RU", "EN", "TR"].map((lang) => (
+// //                         <div key={lang} className="flex items-center space-x-2">
+// //                           <Checkbox checked={formData.languages.includes(lang)} onCheckedChange={() => handleLanguageToggle(lang)} />
+// //                           <span>{lang}</span>
+// //                         </div>
+// //                       ))}
+// //                     </div>
+// //                   </div>
+
+// //                   <div>
+// //                     <Label>{t.description}</Label>
+// //                     <Textarea value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
+// //                   </div>
+// //                 </div>
+// //               )}
+
+// //               {/* TERMS */}
+// //               <div className="flex items-center space-x-2">
+// //                 <Checkbox checked={formData.agreeTerms} onCheckedChange={(v) => setFormData({ ...formData, agreeTerms: !!v })} />
+// //                 <Label>{t.agreeTerms}</Label>
+// //               </div>
+
+// //               {/* SUBMIT */}
+// //               <Button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white">
+// //                 {t.createAccount}
+// //               </Button>
+
+// //               <p className="text-center text-gray-600">
+// //                 {t.alreadyHaveAccount}{" "}
+// //                 <Link href="/login" className="text-orange-600">{t.signIn}</Link>
+// //               </p>
+
+// //             </CardContent>
+
+// //           </Card>
+// //         </div>
+// //       </div>
+// //     </div>
+// //   )
+// // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client"
+
+// import { useState } from "react"
+// import { Button } from "@/components/ui/button"
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
+// import { Textarea } from "@/components/ui/textarea"
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+// import { Checkbox } from "@/components/ui/checkbox"
+// import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+// import { Globe, User, UserCheck, UserCog } from "lucide-react"
+// import Link from "next/link"
+
+// type Language = "uz" | "ru" | "en"
+// type UserType = "user" | "guide" | "teacher"
+
+// const translations = {
+//   uz: {
+//     title: "TravelUz",
+//     register: "Ro'yxatdan o'tish",
+//     userType: "Foydalanuvchi turi",
+//     regularUser: "Oddiy foydalanuvchi",
+//     professionalGuide: "Professional gid",
+//     teacher: "O'qituvchi",
+//     personalInfo: "Shaxsiy ma'lumotlar",
+//     firstName: "Ism",
+//     lastName: "Familiya",
+//     email: "Email",
+//     phone: "Telefon",
+//     password: "Parol",
+//     confirmPassword: "Parolni tasdiqlash",
+//     uploadPhoto: "Rasm yuklash",
+//     guideInfo: "Gid ma'lumotlari",
+//     experience: "Tajriba (yillarda)",
+//     specialization: "Mutaxassislik",
+//     languages: "Tillar",
+//     hourlyRate: "Soatlik narx ($)",
+//     description: "O'zingiz haqingizda",
+//     location: "Joylashuv",
+//     agreeTerms: "Foydalanish shartlariga roziman",
+//     createAccount: "Hisob yaratish",
+//     alreadyHaveAccount: "Hisobingiz bormi?",
+//     signIn: "Kirish",
+//     home: "Bosh sahifa",
+//     hotels: "Mehmonxonalar",
+//     guides: "Gidlar",
+//   },
+
+//   ru: {
+//     title: "TravelUz",
+//     register: "Регистрация",
+//     userType: "Тип пользователя",
+//     regularUser: "Обычный пользователь",
+//     professionalGuide: "Профессиональный гид",
+//     teacher: "Учитель",
+//     personalInfo: "Личная информация",
+//     firstName: "Имя",
+//     lastName: "Фамилия",
+//     email: "Email",
+//     phone: "Телефон",
+//     password: "Пароль",
+//     confirmPassword: "Подтвердить пароль",
+//     uploadPhoto: "Загрузить фото",
+//     guideInfo: "Информация о гиде",
+//     experience: "Опыт (в годах)",
+//     specialization: "Специализация",
+//     languages: "Языки",
+//     hourlyRate: "Почасовая оплата ($)",
+//     description: "О себе",
+//     location: "Местоположение",
+//     agreeTerms: "Согласен с условиями использования",
+//     createAccount: "Создать аккаунт",
+//     alreadyHaveAccount: "Уже есть аккаунт?",
+//     signIn: "Войти",
+//     home: "Главная",
+//     hotels: "Отели",
+//     guides: "Гиды",
+//   },
+
+//   en: {
+//     title: "TravelUz",
+//     register: "Register",
+//     userType: "User Type",
+//     regularUser: "Regular User",
+//     professionalGuide: "Professional Guide",
+//     teacher: "Teacher",
+//     personalInfo: "Personal Information",
+//     firstName: "First Name",
+//     lastName: "Last Name",
+//     email: "Email",
+//     phone: "Phone",
+//     password: "Password",
+//     confirmPassword: "Confirm Password",
+//     uploadPhoto: "Upload Photo",
+//     guideInfo: "Guide Information",
+//     experience: "Experience (years)",
+//     specialization: "Specialization",
+//     languages: "Languages",
+//     hourlyRate: "Hourly Rate ($)",
+//     description: "About Yourself",
+//     location: "Location",
+//     agreeTerms: "I agree to the terms of service",
+//     createAccount: "Create Account",
+//     alreadyHaveAccount: "Already have an account?",
+//     signIn: "Sign In",
+//     home: "Home",
+//     hotels: "Hotels",
+//     guides: "Guides",
+//   },
+// }
+
+// const specializations = {
+//   uz: ["Tarix", "Me'morchilik", "Madaniyat", "Tabiat", "San'at", "Shahar gidi"],
+//   ru: ["История", "Архитектура", "Культура", "Природа", "Искусство", "Городской гид"],
+//   en: ["History", "Architecture", "Culture", "Nature", "Art", "City Guide"],
+// }
+
+// const locations = {
+//   uz: ["Toshkent", "Samarqand", "Buxoro", "Xiva", "Farg'ona", "Nukus", "Namangan", "Andijon"],
+//   ru: ["Ташкент", "Самарканд", "Бухара", "Хива", "Фергана", "Нукус", "Наманган", "Андижан"],
+//   en: ["Tashkent", "Samarkand", "Bukhara", "Khiva", "Fergana", "Nukus", "Namangan", "Andijan"],
+// }
+
+// export default function RegisterPage() {
+//   const [language, setLanguage] = useState<Language>("uz")
+//   const [userType, setUserType] = useState<UserType>("user")
+
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     phone: "",
+//     password: "",
+//     confirmPassword: "",
+//     experience: "",
+//     specialization: "",
+//     languages: [] as string[],
+//     hourlyRate: "",
+//     description: "",
+//     location: "",
+//     agreeTerms: false,
+//   })
+
+//   const t = translations[language]
+
+//   const handleLanguageToggle = (lang: string) => {
+//     setFormData(prev => ({
+//       ...prev,
+//       languages: prev.languages.includes(lang)
+//         ? prev.languages.filter(l => l !== lang)
+//         : [...prev.languages, lang],
+//     }))
+//   }
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+
+//       {/* HEADER */}
+//       <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-orange-100 sticky top-0 z-50">
+//         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+
+//           <Link href="/">
+//             <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+//               {t.title}
+//             </h1>
+//           </Link>
+
+//           <nav className="hidden md:flex items-center space-x-6">
+//             <Link href="/" className="hover:text-orange-600">{t.home}</Link>
+//             <Link href="/hotels" className="hover:text-orange-600">{t.hotels}</Link>
+//             <Link href="/guides" className="hover:text-orange-600">{t.guides}</Link>
+//             <Link href="/register" className="text-orange-600 font-medium">{t.register}</Link>
+//           </nav>
+
+//           <Select value={language} onValueChange={(v: Language) => setLanguage(v)}>
+//             <SelectTrigger className="w-20 border-orange-200">
+//               <Globe className="w-4 h-4 text-orange-600" />
+//             </SelectTrigger>
+//             <SelectContent>
+//               <SelectItem value="uz">UZ</SelectItem>
+//               <SelectItem value="ru">RU</SelectItem>
+//               <SelectItem value="en">EN</SelectItem>
+//             </SelectContent>
+//           </Select>
+
+//         </div>
+//       </header>
+
+//       {/* FORM */}
+//       <div className="py-12 px-4">
+//         <div className="max-w-2xl mx-auto">
+//           <Card className="shadow-xl bg-white/90">
+
+//             <CardHeader className="text-center">
+//               <CardTitle className="text-3xl bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+//                 {t.register}
+//               </CardTitle>
+
+//               <CardDescription>
+//                 {userType === "user" && t.regularUser}
+//                 {userType === "guide" && t.professionalGuide}
+//                 {userType === "teacher" && t.teacher}
+//               </CardDescription>
+//             </CardHeader>
+
+//             <CardContent className="space-y-6">
+
+//               {/* USER TYPE SELECTOR */}
+//               <div className="space-y-3">
+//                 <Label>{t.userType}</Label>
+//                 <RadioGroup value={userType} onValueChange={(v: UserType) => setUserType(v)}>
+
+//                   {/* USER */}
+//                   <div className="flex items-center space-x-2 p-3 border rounded-lg">
+//                     <RadioGroupItem id="user" value="user" />
+//                     <Label htmlFor="user" className="flex items-center">
+//                       <User className="w-4 h-4 mr-2 text-orange-600" />
+//                       {t.regularUser}
+//                     </Label>
+//                   </div>
+
+//                   {/* GUIDE */}
+//                   <div className="flex items-center space-x-2 p-3 border rounded-lg">
+//                     <RadioGroupItem id="guide" value="guide" />
+//                     <Label htmlFor="guide" className="flex items-center">
+//                       <UserCheck className="w-4 h-4 mr-2 text-orange-600" />
+//                       {t.professionalGuide}
+//                     </Label>
+//                   </div>
+
+//                   {/* TEACHER (NEW) */}
+//                   <div className="flex items-center space-x-2 p-3 border rounded-lg">
+//                     <RadioGroupItem id="teacher" value="teacher" />
+//                     <Label htmlFor="teacher" className="flex items-center">
+//                       <UserCog className="w-4 h-4 mr-2 text-orange-600" />
+//                       {t.teacher}
+//                     </Label>
+//                   </div>
+
+//                 </RadioGroup>
+//               </div>
+
+//               {/* PERSONAL INFO */}
+//               <div className="space-y-4">
+//                 <h3 className="text-lg font-semibold border-b pb-2">{t.personalInfo}</h3>
+
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div>
+//                     <Label>{t.firstName}</Label>
+//                     <Input value={formData.firstName} onChange={e => setFormData({ ...formData, firstName: e.target.value })} />
+//                   </div>
+//                   <div>
+//                     <Label>{t.lastName}</Label>
+//                     <Input value={formData.lastName} onChange={e => setFormData({ ...formData, lastName: e.target.value })} />
+//                   </div>
+//                 </div>
+
+//                 <div>
+//                   <Label>{t.email}</Label>
+//                   <Input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
+//                 </div>
+
+//                 <div>
+//                   <Label>{t.phone}</Label>
+//                   <Input value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
+//                 </div>
+
+//                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                   <div>
+//                     <Label>{t.password}</Label>
+//                     <Input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} />
+//                   </div>
+//                   <div>
+//                     <Label>{t.confirmPassword}</Label>
+//                     <Input type="password" value={formData.confirmPassword} onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} />
+//                   </div>
+//                 </div>
+//               </div>
+
+//               {/* GUIDE INFO — ONLY FOR GUIDE */}
+//               {userType === "guide" && (
+//                 <div className="space-y-4">
+//                   <h3 className="text-lg font-semibold border-b pb-2">{t.guideInfo}</h3>
+
+//                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                     <div>
+//                       <Label>{t.experience}</Label>
+//                       <Input type="number" value={formData.experience} onChange={e => setFormData({ ...formData, experience: e.target.value })} />
+//                     </div>
+//                     <div>
+//                       <Label>{t.hourlyRate}</Label>
+//                       <Input type="number" value={formData.hourlyRate} onChange={e => setFormData({ ...formData, hourlyRate: e.target.value })} />
+//                     </div>
+//                   </div>
+
+//                   <div>
+//                     <Label>{t.specialization}</Label>
+//                     <Select onValueChange={v => setFormData({ ...formData, specialization: v })}>
+//                       <SelectTrigger>
+//                         <SelectValue placeholder={t.specialization} />
+//                       </SelectTrigger>
+//                       <SelectContent>
+//                         {specializations[language].map((spec) => (
+//                           <SelectItem key={spec} value={spec}>{spec}</SelectItem>
+//                         ))}
+//                       </SelectContent>
+//                     </Select>
+//                   </div>
+
+//                   <div>
+//                     <Label>{t.location}</Label>
+//                     <Select onValueChange={v => setFormData({ ...formData, location: v })}>
+//                       <SelectTrigger>
+//                         <SelectValue placeholder={t.location} />
+//                       </SelectTrigger>
+//                       <SelectContent>
+//                         {locations[language].map((loc) => (
+//                           <SelectItem key={loc} value={loc}>{loc}</SelectItem>
+//                         ))}
+//                       </SelectContent>
+//                     </Select>
+//                   </div>
+
+//                   <div>
+//                     <Label>{t.languages}</Label>
+//                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+//                       {["UZ", "RU", "EN", "TR"].map((lang) => (
+//                         <div key={lang} className="flex items-center space-x-2">
+//                           <Checkbox checked={formData.languages.includes(lang)} onCheckedChange={() => handleLanguageToggle(lang)} />
+//                           <span>{lang}</span>
+//                         </div>
+//                       ))}
+//                     </div>
+//                   </div>
+
+//                   <div>
+//                     <Label>{t.description}</Label>
+//                     <Textarea value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
+//                   </div>
+//                 </div>
+//               )}
+
+//               {/* TERMS */}
+//               <div className="flex items-center space-x-2">
+//                 <Checkbox checked={formData.agreeTerms} onCheckedChange={(v) => setFormData({ ...formData, agreeTerms: !!v })} />
+//                 <Label>{t.agreeTerms}</Label>
+//               </div>
+
+//               {/* SUBMIT */}
+//               <Button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white">
+//                 {t.createAccount}
+//               </Button>
+
+//               <p className="text-center text-gray-600">
+//                 {t.alreadyHaveAccount}{" "}
+//                 <Link href="/login" className="text-orange-600">{t.signIn}</Link>
+//               </p>
+
+//             </CardContent>
+
+//           </Card>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client"
 
 import { useState } from "react"
@@ -9,11 +681,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Globe, User, UserCheck, Upload, Camera } from "lucide-react"
+import { Globe, User, UserCheck, GraduationCap } from "lucide-react"
 import Link from "next/link"
 
 type Language = "uz" | "ru" | "en"
 
+//
+// 🔥 Translations updated with TEACHER USER TYPE
+//
 const translations = {
   uz: {
     title: "TravelUz",
@@ -21,6 +696,7 @@ const translations = {
     userType: "Foydalanuvchi turi",
     regularUser: "Oddiy foydalanuvchi",
     professionalGuide: "Professional gid",
+    teacher: "O'qituvchi",
     personalInfo: "Shaxsiy ma'lumotlar",
     firstName: "Ism",
     lastName: "Familiya",
@@ -28,15 +704,13 @@ const translations = {
     phone: "Telefon",
     password: "Parol",
     confirmPassword: "Parolni tasdiqlash",
-    profilePhoto: "Profil rasmi",
-    uploadPhoto: "Rasm yuklash",
-    guideInfo: "Gid ma'lumotlari",
+    guideInfo: "Gid maʼlumotlari",
+    teacherInfo: "O‘qituvchi maʼlumotlari",
     experience: "Tajriba (yillarda)",
-    specialization: "Mutaxassislik",
+    specialization: "Mutaxassislik / Fan",
     languages: "Tillar",
     hourlyRate: "Soatlik narx ($)",
     description: "O'zingiz haqingizda",
-    certifications: "Sertifikatlar",
     location: "Joylashuv",
     agreeTerms: "Foydalanish shartlariga roziman",
     createAccount: "Hisob yaratish",
@@ -46,12 +720,14 @@ const translations = {
     hotels: "Mehmonxonalar",
     guides: "Gidlar",
   },
+
   ru: {
     title: "TravelUz",
     register: "Регистрация",
     userType: "Тип пользователя",
     regularUser: "Обычный пользователь",
     professionalGuide: "Профессиональный гид",
+    teacher: "Учитель",
     personalInfo: "Личная информация",
     firstName: "Имя",
     lastName: "Фамилия",
@@ -59,15 +735,13 @@ const translations = {
     phone: "Телефон",
     password: "Пароль",
     confirmPassword: "Подтвердить пароль",
-    profilePhoto: "Фото профиля",
-    uploadPhoto: "Загрузить фото",
     guideInfo: "Информация о гиде",
+    teacherInfo: "Информация об учителе",
     experience: "Опыт (в годах)",
-    specialization: "Специализация",
+    specialization: "Специализация / Предмет",
     languages: "Языки",
     hourlyRate: "Почасовая оплата ($)",
     description: "О себе",
-    certifications: "Сертификаты",
     location: "Местоположение",
     agreeTerms: "Согласен с условиями использования",
     createAccount: "Создать аккаунт",
@@ -77,12 +751,14 @@ const translations = {
     hotels: "Отели",
     guides: "Гиды",
   },
+
   en: {
     title: "TravelUz",
     register: "Register",
     userType: "User Type",
     regularUser: "Regular User",
     professionalGuide: "Professional Guide",
+    teacher: "Teacher",
     personalInfo: "Personal Information",
     firstName: "First Name",
     lastName: "Last Name",
@@ -90,15 +766,13 @@ const translations = {
     phone: "Phone",
     password: "Password",
     confirmPassword: "Confirm Password",
-    profilePhoto: "Profile Photo",
-    uploadPhoto: "Upload Photo",
     guideInfo: "Guide Information",
+    teacherInfo: "Teacher Information",
     experience: "Experience (years)",
-    specialization: "Specialization",
+    specialization: "Specialization / Subject",
     languages: "Languages",
     hourlyRate: "Hourly Rate ($)",
     description: "About Yourself",
-    certifications: "Certifications",
     location: "Location",
     agreeTerms: "I agree to the terms of service",
     createAccount: "Create Account",
@@ -110,21 +784,29 @@ const translations = {
   },
 }
 
+//
+// SPECIALIZATIONS FOR GUIDE + TEACHER
+//
 const specializations = {
-  uz: ["Tarix", "Me'morchilik", "Madaniyat", "Tabiat", "San'at", "Shahar gidi"],
-  ru: ["История", "Архитектура", "Культура", "Природа", "Искусство", "Городской гид"],
-  en: ["History", "Architecture", "Culture", "Nature", "Art", "City Guide"],
+  uz: ["Ingliz tili", "Rus tili", "Tarix", "Matematika", "Shaxsiy rivojlanish"],
+  ru: ["Английский язык", "Русский язык", "История", "Математика", "Личностное развитие"],
+  en: ["English", "Russian", "History", "Mathematics", "Personal Development"],
 }
 
 const locations = {
-  uz: ["Toshkent", "Samarqand", "Buxoro", "Xiva", "Farg'ona", "Nukus", "Namangan", "Andijon"],
-  ru: ["Ташкент", "Самарканд", "Бухара", "Хива", "Фергана", "Нукус", "Наманган", "Андижан"],
-  en: ["Tashkent", "Samarkand", "Bukhara", "Khiva", "Fergana", "Nukus", "Namangan", "Andijan"],
+  uz: ["Toshkent", "Samarqand", "Buxoro", "Xiva", "Farg'ona"],
+  ru: ["Ташкент", "Самарканд", "Бухара", "Хива", "Фергана"],
+  en: ["Tashkent", "Samarkand", "Bukhara", "Khiva", "Fergana"],
 }
 
+//
+// *** MAIN COMPONENT ***
+//
 export default function RegisterPage() {
   const [language, setLanguage] = useState<Language>("uz")
-  const [userType, setUserType] = useState<"user" | "guide">("user")
+
+  const [userType, setUserType] = useState<"user" | "guide" | "teacher">("user")
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -143,315 +825,215 @@ export default function RegisterPage() {
 
   const t = translations[language]
 
-  const handleLanguageToggle = (lang: string) => {
-    setFormData((prev) => ({
+  const toggleLanguageSelection = (lang: string) => {
+    setFormData(prev => ({
       ...prev,
-      languages: prev.languages.includes(lang) ? prev.languages.filter((l) => l !== lang) : [...prev.languages, lang],
+      languages: prev.languages.includes(lang)
+        ? prev.languages.filter(l => l !== lang)
+        : [...prev.languages, lang],
     }))
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-orange-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent cursor-pointer">
-                  {t.title}
-                </h1>
-              </Link>
-            </div>
 
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-orange-600 transition-colors">
-                {t.home}
-              </Link>
-              <Link href="/hotels" className="text-gray-600 hover:text-orange-600 transition-colors">
-                {t.hotels}
-              </Link>
-              <Link href="/guides" className="text-gray-600 hover:text-orange-600 transition-colors">
-                {t.guides}
-              </Link>
-              <Link href="/register" className="text-orange-600 font-medium hover:text-orange-700 transition-colors">
-                {t.register}
-              </Link>
-            </nav>
+      {/* HEADER */}
+      <header className="bg-white/90 shadow-md border-b sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
 
-            <div className="flex items-center space-x-4">
-              <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
-                <SelectTrigger className="w-20 border-orange-200 focus:border-orange-400">
-                  <Globe className="w-4 h-4 text-orange-600" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="uz">UZ</SelectItem>
-                  <SelectItem value="ru">RU</SelectItem>
-                  <SelectItem value="en">EN</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
+          <Link href="/">
+            <h1 className="text-2xl font-bold text-orange-600">{t.title}</h1>
+          </Link>
+
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/" className="hover:text-orange-600">{t.home}</Link>
+            <Link href="/hotels" className="hover:text-orange-600">{t.hotels}</Link>
+            <Link href="/guides" className="hover:text-orange-600">{t.guides}</Link>
+            <Link href="/register" className="text-orange-600 font-medium">{t.register}</Link>
+          </nav>
+
+          <Select value={language} onValueChange={(v: Language) => setLanguage(v)}>
+            <SelectTrigger className="w-20">
+              <Globe className="w-4 h-4 text-orange-600" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="uz">UZ</SelectItem>
+              <SelectItem value="ru">RU</SelectItem>
+              <SelectItem value="en">EN</SelectItem>
+            </SelectContent>
+          </Select>
+
         </div>
       </header>
 
-      {/* Registration Form */}
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
+      {/* FORM */}
+      <div className="py-12 px-4">
         <div className="max-w-2xl mx-auto">
-          <Card className="shadow-2xl border-orange-100 bg-white/90 backdrop-blur-sm">
+          <Card className="shadow-xl bg-white/90">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                {t.register}
-              </CardTitle>
-              <CardDescription className="text-gray-600">
-                {userType === "user" ? t.regularUser : t.professionalGuide}
+              <CardTitle className="text-3xl text-orange-600">{t.register}</CardTitle>
+              <CardDescription>
+                {userType === "user" && t.regularUser}
+                {userType === "guide" && t.professionalGuide}
+                {userType === "teacher" && t.teacher}
               </CardDescription>
             </CardHeader>
 
             <CardContent className="space-y-6">
-              {/* User Type Selection */}
+
+              {/* USER TYPE SELECTOR */}
               <div className="space-y-3">
-                <Label className="text-base font-medium text-gray-700">{t.userType}</Label>
-                <RadioGroup value={userType} onValueChange={(value: "user" | "guide") => setUserType(value)}>
-                  <div className="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
-                    <RadioGroupItem value="user" id="user" />
-                    <Label htmlFor="user" className="flex items-center cursor-pointer">
+                <Label>{t.userType}</Label>
+
+                <RadioGroup value={userType} onValueChange={(v: any) => setUserType(v)}>
+
+                  {/* USER */}
+                  <div className="flex items-center space-x-2 p-3 border rounded-lg">
+                    <RadioGroupItem id="user" value="user" />
+                    <Label htmlFor="user" className="flex items-center">
                       <User className="w-4 h-4 mr-2 text-orange-600" />
                       {t.regularUser}
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
-                    <RadioGroupItem value="guide" id="guide" />
-                    <Label htmlFor="guide" className="flex items-center cursor-pointer">
+
+                  {/* GUIDE */}
+                  <div className="flex items-center space-x-2 p-3 border rounded-lg">
+                    <RadioGroupItem id="guide" value="guide" />
+                    <Label htmlFor="guide" className="flex items-center">
                       <UserCheck className="w-4 h-4 mr-2 text-orange-600" />
                       {t.professionalGuide}
                     </Label>
                   </div>
+
+                  {/* TEACHER */}
+                  <div className="flex items-center space-x-2 p-3 border rounded-lg">
+                    <RadioGroupItem id="teacher" value="teacher" />
+                    <Label htmlFor="teacher" className="flex items-center">
+                      <GraduationCap className="w-4 h-4 mr-2 text-orange-600" />
+                      {t.teacher}
+                    </Label>
+                  </div>
+
                 </RadioGroup>
               </div>
 
-              {/* Personal Information */}
+              {/* PERSONAL INFO */}
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">
-                  {t.personalInfo}
-                </h3>
+                <h3 className="text-lg font-semibold border-b pb-2">{t.personalInfo}</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">{t.firstName}</Label>
-                    <Input
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, firstName: e.target.value }))}
-                      className="border-orange-200 focus:border-orange-400"
-                    />
+                  <div>
+                    <Label>{t.firstName}</Label>
+                    <Input value={formData.firstName} onChange={e => setFormData({ ...formData, firstName: e.target.value })} />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">{t.lastName}</Label>
-                    <Input
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, lastName: e.target.value }))}
-                      className="border-orange-200 focus:border-orange-400"
-                    />
+                  <div>
+                    <Label>{t.lastName}</Label>
+                    <Input value={formData.lastName} onChange={e => setFormData({ ...formData, lastName: e.target.value })} />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">{t.email}</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                    className="border-orange-200 focus:border-orange-400"
-                  />
+                <div>
+                  <Label>{t.email}</Label>
+                  <Input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="phone">{t.phone}</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="border-orange-200 focus:border-orange-400"
-                  />
+                <div>
+                  <Label>{t.phone}</Label>
+                  <Input value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="password">{t.password}</Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      value={formData.password}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, password: e.target.value }))}
-                      className="border-orange-200 focus:border-orange-400"
-                    />
+                  <div>
+                    <Label>{t.password}</Label>
+                    <Input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">{t.confirmPassword}</Label>
-                    <Input
-                      id="confirmPassword"
-                      type="password"
-                      value={formData.confirmPassword}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, confirmPassword: e.target.value }))}
-                      className="border-orange-200 focus:border-orange-400"
-                    />
-                  </div>
-                </div>
-
-                {/* Profile Photo */}
-                <div className="space-y-2">
-                  <Label>{t.profilePhoto}</Label>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center">
-                      <Camera className="w-8 h-8 text-orange-600" />
-                    </div>
-                    <Button
-                      variant="outline"
-                      className="border-orange-200 text-orange-600 hover:bg-orange-50 bg-transparent"
-                    >
-                      <Upload className="w-4 h-4 mr-2" />
-                      {t.uploadPhoto}
-                    </Button>
+                  <div>
+                    <Label>{t.confirmPassword}</Label>
+                    <Input type="password" value={formData.confirmPassword} onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })} />
                   </div>
                 </div>
               </div>
 
-              {/* Guide-specific Information */}
-              {userType === "guide" && (
+              {/* GUIDE & TEACHER SHARED SECTION */}
+              {(userType === "guide" || userType === "teacher") && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-800 border-b border-orange-200 pb-2">{t.guideInfo}</h3>
+                  <h3 className="text-lg font-semibold border-b pb-2">
+                    {userType === "guide" ? t.guideInfo : t.teacherInfo}
+                  </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="experience">{t.experience}</Label>
-                      <Input
-                        id="experience"
-                        type="number"
-                        value={formData.experience}
-                        onChange={(e) => setFormData((prev) => ({ ...prev, experience: e.target.value }))}
-                        className="border-orange-200 focus:border-orange-400"
-                      />
+                    <div>
+                      <Label>{t.experience}</Label>
+                      <Input type="number" value={formData.experience} onChange={e => setFormData({ ...formData, experience: e.target.value })} />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="hourlyRate">{t.hourlyRate}</Label>
-                      <Input
-                        id="hourlyRate"
-                        type="number"
-                        value={formData.hourlyRate}
-                        onChange={(e) => setFormData((prev) => ({ ...prev, hourlyRate: e.target.value }))}
-                        className="border-orange-200 focus:border-orange-400"
-                      />
+                    <div>
+                      <Label>{t.hourlyRate}</Label>
+                      <Input type="number" value={formData.hourlyRate} onChange={e => setFormData({ ...formData, hourlyRate: e.target.value })} />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="specialization">{t.specialization}</Label>
-                    <Select
-                      value={formData.specialization}
-                      onValueChange={(value) => setFormData((prev) => ({ ...prev, specialization: value }))}
-                    >
-                      <SelectTrigger className="border-orange-200 focus:border-orange-400">
-                        <SelectValue />
+                  <div>
+                    <Label>{t.specialization}</Label>
+                    <Select onValueChange={v => setFormData({ ...formData, specialization: v })}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={t.specialization} />
                       </SelectTrigger>
                       <SelectContent>
                         {specializations[language].map((spec) => (
-                          <SelectItem key={spec} value={spec}>
-                            {spec}
-                          </SelectItem>
+                          <SelectItem key={spec} value={spec}>{spec}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="location">{t.location}</Label>
-                    <Select
-                      value={formData.location}
-                      onValueChange={(value) => setFormData((prev) => ({ ...prev, location: value }))}
-                    >
-                      <SelectTrigger className="border-orange-200 focus:border-orange-400">
-                        <SelectValue />
+                  <div>
+                    <Label>{t.location}</Label>
+                    <Select onValueChange={v => setFormData({ ...formData, location: v })}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={t.location} />
                       </SelectTrigger>
                       <SelectContent>
                         {locations[language].map((loc) => (
-                          <SelectItem key={loc} value={loc}>
-                            {loc}
-                          </SelectItem>
+                          <SelectItem key={loc} value={loc}>{loc}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <div className="space-y-2">
+                  <div>
                     <Label>{t.languages}</Label>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                      {["UZ", "RU", "EN", "TR", "DE", "FR", "ES", "IT"].map((lang) => (
+                      {["UZ", "RU", "EN", "TR"].map((lang) => (
                         <div key={lang} className="flex items-center space-x-2">
-                          <Checkbox
-                            id={lang}
-                            checked={formData.languages.includes(lang)}
-                            onCheckedChange={() => handleLanguageToggle(lang)}
-                          />
-                          <Label htmlFor={lang} className="text-sm">
-                            {lang}
-                          </Label>
+                          <Checkbox checked={formData.languages.includes(lang)} onCheckedChange={() => toggleLanguageSelection(lang)} />
+                          <span>{lang}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="description">{t.description}</Label>
-                    <Textarea
-                      id="description"
-                      value={formData.description}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
-                      className="border-orange-200 focus:border-orange-400 min-h-[100px]"
-                      placeholder={
-                        language === "uz"
-                          ? "O'zingiz va xizmatlaringiz haqida yozing..."
-                          : language === "ru"
-                            ? "Расскажите о себе и своих услугах..."
-                            : "Tell about yourself and your services..."
-                      }
-                    />
+                  <div>
+                    <Label>{t.description}</Label>
+                    <Textarea value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
                   </div>
                 </div>
               )}
 
-              {/* Terms Agreement */}
+              {/* TERMS */}
               <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="terms"
-                  checked={formData.agreeTerms}
-                  onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, agreeTerms: checked as boolean }))}
-                />
-                <Label htmlFor="terms" className="text-sm text-gray-600">
-                  {t.agreeTerms}
-                </Label>
+                <Checkbox checked={formData.agreeTerms} onCheckedChange={(v) => setFormData({ ...formData, agreeTerms: !!v })} />
+                <Label>{t.agreeTerms}</Label>
               </div>
 
-              {/* Submit Button */}
-              <Button
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white shadow-lg py-3 text-lg"
-                disabled={!formData.agreeTerms}
-              >
+              <Button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white">
                 {t.createAccount}
               </Button>
 
-              {/* Sign In Link */}
-              <div className="text-center">
-                <p className="text-gray-600">
-                  {t.alreadyHaveAccount}{" "}
-                  <Link href="/login" className="text-orange-600 hover:text-orange-700 font-medium">
-                    {t.signIn}
-                  </Link>
-                </p>
-              </div>
+              <p className="text-center text-gray-600">
+                {t.alreadyHaveAccount}{" "}
+                <Link href="/login" className="text-orange-600">{t.signIn}</Link>
+              </p>
+
             </CardContent>
           </Card>
         </div>
