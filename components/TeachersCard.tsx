@@ -1,20 +1,19 @@
-// components/TeacherCard.tsx
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
 interface Teacher {
-  id: string
-  name: string
-  avatar: string
-  subjects: { uz: string; ru: string; en: string }
-  bios: { uz: string; ru: string; en: string }
+  id: string;
+  name: string;
+  avatar: string;
+  subjects: { uz: string; ru: string; en: string };
+  bios: { uz: string; ru: string; en: string };
 }
 
 interface Props {
-  teacher: Teacher
-  language: "uz" | "ru" | "en"
-  onViewProfile?: () => void
+  teacher: Teacher;
+  language: "uz" | "ru" | "en";
+  onViewProfile?: () => void;
 }
 
 export default function TeacherCard({ teacher, language, onViewProfile }: Props) {
@@ -37,5 +36,5 @@ export default function TeacherCard({ teacher, language, onViewProfile }: Props)
         </button>
       )}
     </div>
-  )
+  );
 }
