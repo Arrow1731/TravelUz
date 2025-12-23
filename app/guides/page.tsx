@@ -33,6 +33,12 @@ const translations = {
     verified: "Tasdiqlangan",
     topRated: "Eng yuqori baholangan",
     newGuides: "Yangi gidlar",
+    categories: {
+      all: "Barcha gidlar",
+      topRated: "Eng yuqori baholangan",
+      newGuides: "Yangi gidlar",
+      studentGuides: "Talaba gidlar",
+    },
   },
   ru: {
     title: "TravelUz",
@@ -54,6 +60,12 @@ const translations = {
     verified: "Проверен",
     topRated: "Лучшие по рейтингу",
     newGuides: "Новые гиды",
+    categories: {
+      all: "Все гиды",
+      topRated: "Лучшие по рейтингу",
+      newGuides: "Новые гиды",
+      studentGuides: "Студенческие гиды",
+    },
   },
   en: {
     title: "TravelUz",
@@ -75,8 +87,14 @@ const translations = {
     verified: "Verified",
     topRated: "Top Rated",
     newGuides: "New Guides",
+    categories: {
+      all: "All Guides",
+      topRated: "Top Rated",
+      newGuides: "New Guides",
+      studentGuides: "Student Guides",
+    },
   },
-}
+};
 
 const guides = [
   {
@@ -160,87 +178,178 @@ const guides = [
     verified: true,
     category: "newGuides",
   },
-  // {
-  //   id: 4,
-  //   name: "Nigora Abdullayeva",
-  //   location: {
-  //     uz: "Toshkent",
-  //     ru: "Ташкент",
-  //     en: "Tashkent",
-  //   },
-  //   speciality: {
-  //     uz: "Shahar gidi",
-  //     ru: "Городской гид",
-  //     en: "City Guide",
-  //   },
-  //   description: {
-  //     uz: "Toshkentning zamonaviy va tarixiy joylarini birlashtiruvchi professional gid.",
-  //     ru: "Профессиональный гид, объединяющий современные и исторические места Ташкента.",
-  //     en: "Professional guide combining modern and historical places of Tashkent.",
-  //   },
-  //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-  //   rating: 4.7,
-  //   reviews: 78,
-  //   experience: 10,
-  //   languages: ["UZ", "RU", "EN"],
-  //   hourlyRate: 22,
-  //   verified: true,
-  //   category: "topRated",
-  // },
-  // {
-  //   id: 5,
-  //   name: "Jasur Mirzayev",
-  //   location: {
-  //     uz: "Farg'ona",
-  //     ru: "Фергана",
-  //     en: "Fergana",
-  //   },
-  //   speciality: {
-  //     uz: "Tabiat gidi",
-  //     ru: "Природный гид",
-  //     en: "Nature Guide",
-  //   },
-  //   description: {
-  //     uz: "Farg'ona vodiysining tabiy go'zalliklarini ko'rsatuvchi mutaxassis.",
-  //     ru: "Специалист, показывающий природные красоты Ферганской долины.",
-  //     en: "Specialist showing the natural beauty of Fergana Valley.",
-  //   },
-  //   image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-  //   rating: 4.5,
-  //   reviews: 32,
-  //   experience: 3,
-  //   languages: ["UZ", "RU"],
-  //   hourlyRate: 15,
-  //   verified: false,
-  //   category: "newGuides",
-  // },
-  // {
-  //   id: 6,
-  //   name: "Dilnoza Saidova",
-  //   location: {
-  //     uz: "Nukus",
-  //     ru: "Нукус",
-  //     en: "Nukus",
-  //   },
-  //   speciality: {
-  //     uz: "San'at gidi",
-  //     ru: "Искусствовед",
-  //     en: "Art Guide",
-  //   },
-  //   description: {
-  //     uz: "Savitskiy muzeyi va zamonaviy san'at bo'yicha mutaxassis.",
-  //     ru: "Специалист по музею Савицкого и современному искусству.",
-  //     en: "Specialist in Savitsky Museum and contemporary art.",
-  //   },
-  //   image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
-  //   rating: 4.4,
-  //   reviews: 28,
-  //   experience: 4,
-  //   languages: ["UZ", "RU", "EN"],
-  //   hourlyRate: 16,
-  //   verified: true,
-  //   category: "newGuides",
-  // },
+
+  {
+    id: 4,
+    name: "Shahnoza Ergasheva",
+    location: { uz: "Toshkent", ru: "Ташкент", en: "Tashkent" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Toshkentdagi tarixiy joylarni o‘rganayotgan talaba gid.",
+      ru: "Студент-гид, изучающий исторические места Ташкента.",
+      en: "Student guide learning historical places of Tashkent.",
+    },
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face",
+    rating: 4.2,
+    reviews: 12,
+    experience: 1,
+    languages: ["UZ", "EN"],
+    hourlyRate: 10,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 5,
+    name: "Oybek Karimov",
+    location: { uz: "Andijon", ru: "Андижан", en: "Andijan" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Andijonning madaniy merosini o‘rganayotgan yosh talaba.",
+      ru: "Молодой студент, изучающий культурное наследие Андижана.",
+      en: "Young student studying the cultural heritage of Andijan.",
+    },
+    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face",
+    rating: 4.0,
+    reviews: 5,
+    experience: 1,
+    languages: ["UZ", "RU"],
+    hourlyRate: 8,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 6,
+    name: "Nilufar Sobirova",
+    location: { uz: "Farg‘ona", ru: "Фергана", en: "Fergana" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Farg‘ona vodiysining madaniy joylarini o‘rganayotgan talabachi.",
+      ru: "Студент, изучающий культурные места Ферганской долины.",
+      en: "Student exploring the cultural sites of the Fergana Valley.",
+    },
+    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop&crop=face",
+    rating: 4.1,
+    reviews: 7,
+    experience: 1,
+    languages: ["UZ", "EN"],
+    hourlyRate: 9,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 7,
+    name: "Jasur Qodirov",
+    location: { uz: "Namangan", ru: "Наманган", en: "Namangan" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Namanganning tarixiy yodgorliklari bo‘yicha o‘rganayotgan talaba.",
+      ru: "Студент, изучающий исторические памятники Намангана.",
+      en: "Student studying the historical monuments of Namangan.",
+    },
+    image: "https://images.unsplash.com/photo-1502767089025-6572583495d8?w=150&h=150&fit=crop&crop=face",
+    rating: 4.3,
+    reviews: 10,
+    experience: 1,
+    languages: ["UZ", "RU", "EN"],
+    hourlyRate: 11,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 8,
+    name: "Dilshod Usmanov",
+    location: { uz: "Qarshi", ru: "Карши", en: "Karshi" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Qarshidagi tarixiy va madaniy joylarni o‘rganayotgan talaba gid.",
+      ru: "Студент-гид, изучающий исторические и культурные места Карши.",
+      en: "Student guide exploring historical and cultural places in Karshi.",
+    },
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    rating: 4.0,
+    reviews: 8,
+    experience: 1,
+    languages: ["UZ", "EN"],
+    hourlyRate: 9,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 9,
+    name: "Laylo Abdurahmonova",
+    location: { uz: "Urganch", ru: "Ургенч", en: "Urgench" },
+    speciality: { uz: "Talaba gid", ru: "Студенческий гид", en: "Student Guide" },
+    description: {
+      uz: "Xivaning tarixiy obidalarini o‘rganayotgan yosh talaba.",
+      ru: "Молодой студент, изучающий исторические памятники Хивы.",
+      en: "Young student studying historical monuments of Khiva.",
+    },
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face",
+    rating: 4.2,
+    reviews: 6,
+    experience: 1,
+    languages: ["UZ", "RU", "EN"],
+    hourlyRate: 10,
+    verified: false,
+    category: "studentGuides",
+  },
+  {
+    id: 10,
+    name: "Alisher Rakhmatov",
+    location: { uz: "Samarqand", ru: "Самарканд", en: "Samarkand" },
+    speciality: { uz: "Tarix va madaniyat bo‘yicha professional gid", ru: "Профессиональный гид по истории и культуре", en: "Professional guide in History & Culture" },
+    description: {
+      uz: "Samarqandning barcha tarixiy va madaniy joylarini mukammal biladigan professional gid.",
+      ru: "Профессиональный гид, прекрасно знающий все исторические и культурные места Самарканда.",
+      en: "Professional guide with deep knowledge of all historical and cultural sites in Samarkand.",
+    },
+    image: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=150&h=150&fit=crop&crop=face",
+    rating: 5.0,
+    reviews: 220,
+    experience: 18,
+    languages: ["UZ", "RU", "EN", "DE"],
+    hourlyRate: 30,
+    verified: true,
+    category: "topRated",
+  },
+  {
+    id: 11,
+    name: "Sevara Yuldasheva",
+    location: { uz: "Buxoro", ru: "Бухара", en: "Bukhara" },
+    speciality: { uz: "Me’morchilik bo‘yicha professional gid", ru: "Профессиональный гид по архитектуре", en: "Professional Architecture Guide" },
+    description: {
+      uz: "Buxoroning noyob me’moriy yodgorliklarini chuqur biladigan tajribali gid.",
+      ru: "Опытный гид, отлично знающий уникальные архитектурные памятники Бухары.",
+      en: "Experienced guide with deep knowledge of Bukhara's unique architectural monuments.",
+    },
+    image: "https://images.unsplash.com/photo-1502767089025-6572583495d8?w=150&h=150&fit=crop&crop=face",
+    rating: 4.9,
+    reviews: 180,
+    experience: 12,
+    languages: ["UZ", "RU", "EN", "FR"],
+    hourlyRate: 28,
+    verified: true,
+    category: "topRated",
+  },
+  {
+    id: 12,
+    name: "Rustam Khamidov",
+    location: { uz: "Xiva", ru: "Хива", en: "Khiva" },
+    speciality: { uz: "Madaniyat va tarix bo‘yicha professional gid", ru: "Профессиональный гид по культуре и истории", en: "Professional Cultural & History Guide" },
+    description: {
+      uz: "Xivaning boy madaniy merosini mukammal biladigan tajribali gid.",
+      ru: "Опытный гид, прекрасно знающий богатое культурное наследие Хивы.",
+      en: "Experienced guide with excellent knowledge of Khiva’s rich cultural heritage.",
+    },
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    rating: 4.95,
+    reviews: 142,
+    experience: 14,
+    languages: ["UZ", "RU", "EN", "ES"],
+    hourlyRate: 27,
+    verified: true,
+    category: "topRated",
+  },
 ]
 
 export default function GuidesPage() {
@@ -321,7 +430,7 @@ export default function GuidesPage() {
                 placeholder={t.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 border-orange-200 focus:border-orange-400"
+                className="pl-10 border-orange-200 focus:border-orange-400 outline-none"
               />
             </div>
 
@@ -330,9 +439,10 @@ export default function GuidesPage() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Guides</SelectItem>
-                <SelectItem value="topRated">{t.topRated}</SelectItem>
-                <SelectItem value="newGuides">{t.newGuides}</SelectItem>
+                <SelectItem value="all">{t.categories.all}</SelectItem>
+                <SelectItem value="topRated">{t.categories.topRated}</SelectItem>
+                <SelectItem value="newGuides">{t.categories.newGuides}</SelectItem>
+                <SelectItem value="studentGuides">{t.categories.studentGuides}</SelectItem>
               </SelectContent>
             </Select>
           </div>

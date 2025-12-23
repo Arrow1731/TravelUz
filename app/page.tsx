@@ -263,13 +263,13 @@ export default function HomePage() {
                 <Users className="w-4 h-4" />
                 <span>{t.guides}</span>
               </Link>
-              <Link
+              {/* <Link
                 href="/teachers"
                 className="text-gray-600 hover:text-orange-600 transition-colors flex items-center space-x-1"
               >
                 <Users className="w-4 h-4" />
                 <span>{t.Teachers}</span>
-              </Link>
+              </Link> */}
               <Link
                 href="/register"
                 className="text-gray-600 hover:text-orange-600 transition-colors flex items-center space-x-1"
